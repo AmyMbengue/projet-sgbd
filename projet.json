@@ -1,0 +1,72 @@
+[
+{
+	"acteur": [
+	{
+		"idAct": 9,
+		"nom": "John",
+		"prenom": "Travolta",
+		"anneeNaissance": 1954
+	},
+	{
+		"idAct": 6,
+		"nom": "Jose",
+		"prenom": "Travo",
+		"anneeNaissance": 1964
+	},
+	{
+		"idAct": 4,
+		"nom": "Jean",
+		"prenom": "volta",
+		"anneeNaissance": 1958
+	}],
+	"relation":{
+		"associations":[
+		{ 
+			"nomAutreEntite":"film",
+			"nomAssoc":"jouer"
+		}]
+	}
+},
+{
+	"film": [
+	{
+		"idFilm":5,
+		"annee": 1984,
+		"genre": "Action",
+		"pays": "USA"
+	},
+	{
+		"idFilm":2,
+		"annee": 1894,
+		"genre": "horreur",
+		"pays": "USA"
+	},
+	{
+		"idFilm":1,
+		"annee": 1994,
+		"genre": "Action",
+		"pays": "USA"
+	}],
+	"relation":{
+		"associations":[
+		{ 
+			"nomAutreEntite":"metteurEnScene",
+			"nomAssoc":"avoir"
+		}]
+	}
+},
+{
+	"metteurEnScene": [
+	{
+		"idMet":8,
+		"nomMet": "Tarantino",
+		"prenomMet": "Quentin",
+		"anneeNaissance": 1963  
+	},
+	{
+		"idMet":5,
+		"nomMet": "Fatou",
+		"prenomMet": "Paye",
+		"anneeNaissance": 1983  
+	}]
+}]
