@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="root">
+		<xsd:complexType>
+			<xsd:sequence>
+
+				<xsd:element name="Etudiant">
+					<xsd:complexType>
+						<sequence>
+							<xsd:element name="idEtudiant" type="xsd:int"/>
+							<xsd:element name="nomEtudiant" type="xsd:string"/>
+							<xsd:element name="prenomEtudiant" type="xsd:string"/>
+							<xsd:element name="classe" type="xsd:string"/>
+						</sequence>
+
+							<xsd:element name="enseigne"></xsd:element>
+										<xsd:element name="Professeur">
+											<xsd:complexType>
+												<sequence>
+													<xsd:element name="idProf" type="xsd:int"/>
+													<xsd:element name="nomProf" type="xsd:string"/>
+													<xsd:element name="prenomProf" type="xsd:string"/>
+												</sequence>
+
+													<xsd:element name="Anime"></xsd:element>
+
+														<xsd:element name="Cours">
+															<xsd:complexType>
+																<sequence>
+																	<xsd:element name="idCours" type="xsd:int"/>
+																	<xsd:element name="libelleCours" type="xsd:string"/>
+																</sequence>
+															</xsd:complexType>
+														</xsd:element>
+
+											</xsd:complexType>
+										</xsd:element>
+					</xsd:complexType>
+				</xsd:element>
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

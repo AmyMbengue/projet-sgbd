@@ -1,0 +1,21 @@
+<?xml version="1.8" encoding="UTF-8"?>
+    <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="projet.xsd">
+        <Etudiant>
+            <idEtudiant>1</idEtudiant>
+            <nom>Mbengue</nom>
+            <prenom>Amy</prenom>
+            <classe>dic1tr</classe>
+        </Etudiant>
+    	<Professeur>
+            <idProf>3</idProf>
+            <nomProf>Mbacke</nomProf>
+            <prenomProf>Ahmath</prenomProf>
+    		<enseigne entite="Etudiant"></enseigne>
+        </Professeur>
+        <Cours>
+            <idCours>2</idCours>
+            <libelleCours>sgbd</libelleCours>
+            <Anime entite="Professeur"></Anime>
+        </Cours>
+        
+    </root>
