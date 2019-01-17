@@ -45,6 +45,153 @@ for i in range(len(listEntites)):
                                            size = ("150px", "130px"),
                                            stroke_width = "1",
                                            stroke = "black",
+                                           fill = "rgb(0,255,255)"))
+        entityCoords = {
+            "nomEntite": listEntites[i],
+            "coordX": 10,
+            "coordY": i*150 + 10
+        }
+        entityCoordsList.append(entityCoords)
+
+        svg_document.add(svg_document.rect(insert = (10, i*150 + 10),
+                                           size = ("150px", "26px"),
+                                           stroke_width = "1",
+                                           stroke = "black",
+                                           fill = "rgb(0,255,255)"))
+
+
+        # Affichage du nom de l'entité
+        svg_document.add(svg_document.text(listEntites[i],
+            insert=(20, i*150 + 30),
+            stroke='none',
+            fill="rgb(255,0,255)",
+            font_size='15px',
+            font_weight="bold")
+        )
+
+        # Affichage de la liste des attributs
+        for k in range(len(listAttributs)):
+            svg_document.add(svg_document.text(listAttributs[k],
+                insert=(20, i*150 + 40 + (k+1)*20),
+                stroke='none',
+                fill="rgb(255,0,255)",
+                font_size='15px',
+                font_weight="bold")
+            )
+    else:
+        # Creation du rectangle contenant les infos de l'entité
+        svg_document.add(svg_document.rect(insert = (400, (i - 1)*150 + 10),
+                                           size = ("150px", "130px"),
+                                           stroke_width = "1",
+                                           stroke = "black",
+                                           fill = "rgb(0,255,255)"))
+
+        entityCoords = {
+            "nomEntite": listEntites[i],
+            "coordX": 400,
+            "coordY": (i - 1)*150 + 10
+        }
+        entityCoordsList.append(entityCoords)
+
+        svg_document.add(svg_document.rect(insert = (400, (i - 1)*150 + 10),
+                                           size = ("150px", "26px"),
+                                           stroke_width = "1",
+                                           stroke = "black",
+                                           fill = "rgb(0,255,255)"))
+
+
+
+        # Affichage du nom de l'entité
+        svg_document.add(svg_document.text(listEntites[i],
+            insert=(410, (i - 1)*150 + 30),
+            stroke='none',
+            fill="rgb(255,0,255)",
+            font_size='15px',
+            font_weight="bold")
+        )
+
+        # Affichage de la liste des attributs
+        for k in range(len(listAttributs)):
+            svg_document.add(svg_document.text(listAttributs[k],
+                insert=(410, (i - 1)*150 + 40 + (k+1)*20),
+                stroke='none',
+                fill="rgb(255,0,255)",
+                font_size='15px',
+                font_weight="bold")
+            )
+
+# ---------------
+
+# print(svg_document.tostring())
+
+for i in range(len(listEntites)):
+    # Recuperations des differentes associations
+    # nbAssocs = len(myJsonData[i]['relation']['associations'])
+    nbAssocs = len(myJsonData[i]['relation']['associations'])
+
+    for j in range(len(myJsonData[i]['relation']['associations'])):
+            # for key in myJsonData[i][listEntites[i]]['relations']['associations'][j].keys():
+            #     listAssocs.append(key)
+            #     print(key)
+            nomAutreEntite = myJsonData[i]['relation']['associations'][j]["nomAutreEntite"]
+            # cardDeb = myJsonData[i][listEntites[i]]['relations']['associations'][j]["cardDeb"]
+            # cardFin = myJsonData[i][listEntites[i]]['relations']['associations'][j]["cardFin"]
+            nomAssoc = myJsonData[i]['relation']['associations'][j]["nomAssoc"]
+
+            for k in range(len(entityCoordsList)):
+                if entityCoordsList[k]['nomEntite'] == listEntites[i]:
+                        debutLigneX = entityCoordsList[k]['coordX'] + 1
+                        debutLigneY = entityCoordsList[k]['coordY'] + 65
+                if entityCoordsList[k]['nomEntite'] == nomAutreEntite:
+                        finLigneX = entityCoordsList[k]['coordX'] + 1
+                        finLigneY = entityCoordsList[k]['coordY'] + 65
+
+
+                        svg_document.add(svg_document.line(
+                            (debutLigneX, debutLigneY),
+                            (finLigneX, finLigneY),
+                            stroke='black',
+                            stroke_width = "3",
+                            fill="rgb(255,0,255)"))
+
+                            # # Affichage de la cardinalité depart
+                            # svg_document.add(svg_document.text(cardDeb,
+                            #     insert=(debutLigneX + 10, debutLigneY - 10),
+                            #     stroke='none',
+                            #     fill="rgb(15, 15, 15)",
+                            #     font_size='15px',
+                            #     font_weight="bold")
+                            # )
+
+                            # # Affichage de la cardinalité arrivée
+                            # svg_document.add(svg_document.text(cardFin,
+                            #     insert=(finLigneX - 30, finLigneY - 10),
+                            #     stroke='none',
+                            #     fill="rgb(15, 15, 15)",
+                            #     font_size='15px',
+                            #     font_weight="bold")
+                            # )
+
+
+                            # Affichage du nom de l'association
+                        svg_document.add(svg_document.text(nomAssoc,
+                            insert=((finLigneX - debutLigneX) / 2 + debutLigneX, finLigneY - 10),
+                            stroke='none',
+                            fill="rgb(255,0,255)",
+                            font_size='15px',
+                            font_weight="bold")
+                        )
+
+svg_document.save()
+
+
+
+    if (i % 2 == 0):
+        # Creation du rectangle contenant les infos de l'entité
+        svg_document.add(svg_document.rect(insert = (10, i*150 + 10),
+                                           size = ("150px", "130px"),
+                                           stroke_width = "1",
+                                           stroke = "black",
                                            fill = "rgb(200, 200, 40)"))
         entityCoords = {
             "nomEntite": listEntites[i],
