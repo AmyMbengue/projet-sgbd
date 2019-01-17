@@ -35,7 +35,7 @@ if len(sys.argv) == 7:
                 if fileType == 'json':
                     # Verification de l'extention du fichier en input
                     if (fileExt != '.json'):
-                        print('---Erreur: Veuillez entrer un fichier JSON')
+                        print('Veuillez entrer un fichier JSON')
                     else:
                         if validation.json_validator(myfile):
                             import essai
@@ -47,7 +47,7 @@ if len(sys.argv) == 7:
                         print('---Erreur: Veuillez entrer un fichier XML')
                     else:
                         if validation.xml_validator(myfile):
-                            print('Traitement du fichier XML')
+                            import generer_xml
                         else:
                             validation.xml_validator(myfile)
                 else:
@@ -56,11 +56,11 @@ if len(sys.argv) == 7:
 
         elif inputType == '-h':
                     url = sys.argv[4]
-                    print(url)
-                    if fileType == 'json':
-                        import essai
+                    import essai
+
         else:
-                    print("---Erreur: Veuillez specifier un type d'acquisition de fichier correct.")
-                    print("---Votre choix: "+inputType)
+                    print("Erreur: Veuillez specifier un type d'acquisition de fichier correct.")
+                    print("Votre choix: "+inputType)
 else:
     print('Nombre d\'arguments incorrect')
+
